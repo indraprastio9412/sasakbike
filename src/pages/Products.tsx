@@ -11,7 +11,7 @@ const Products = () => (
       description="Empat varian Mazara R633 — frame alloy ringan, suspensi depan, disc brake, dan 21 speed Shimano. Pilih warna yang paling mencerminkan dirimu."
     />
     <section className="container py-14">
-      <div className="grid grid-cols-2 gap-3 sm:gap-5 md:gap-6 max-w-3xl mx-auto">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 lg:gap-6">
         {products.map((p, i) => <ProductCard key={p.id} product={p} index={i} />)}
       </div>
     </section>
