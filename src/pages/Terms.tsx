@@ -3,19 +3,61 @@ import PageHeader from "@/components/PageHeader";
 import { FileText } from "lucide-react";
 
 const sections = [
-  { title: "1. Definisi Layanan", body: "Sasak Bike adalah toko sepeda online yang melayani penjualan sepeda khusus untuk wilayah Pulau Lombok dengan sistem pembayaran COD (Cash On Delivery)." },
-  { title: "2. Pemesanan", body: "Setiap pemesanan dilakukan melalui form di website kami dan dikonfirmasi via WhatsApp ke nomor resmi +62 831-1228-2090. Pesanan dianggap sah setelah konfirmasi balasan dari admin." },
-  { title: "3. Harga & Pembayaran", body: "Harga yang tertera sudah final dalam Rupiah. Pembayaran dilakukan secara COD saat barang diterima. Pembeli wajib menyiapkan dana sesuai total tagihan." },
-  { title: "4. Pengiriman", body: "Pengantaran tersedia di seluruh wilayah Pulau Lombok. Estimasi waktu pengantaran 1–3 hari kerja tergantung lokasi tujuan." },
-  { title: "5. Pembatalan", body: "Pembatalan pesanan hanya dapat dilakukan sebelum sepeda dikirim. Setelah kurir berangkat, pembatalan dapat dikenakan biaya operasional." },
-  { title: "6. Garansi & Klaim", body: "Sepeda dilengkapi garansi resmi dari produsen. Klaim garansi wajib disertai bukti pembelian dan dilakukan via WhatsApp resmi kami." },
-  { title: "7. Tanggung Jawab", body: "Sasak Bike tidak bertanggung jawab atas penyalahgunaan produk di luar fungsi normalnya. Kerusakan akibat kelalaian pengguna tidak termasuk garansi." },
-  { title: "8. Perubahan Ketentuan", body: "Sasak Bike berhak memperbarui Syarat & Ketentuan ini sewaktu-waktu. Perubahan akan dipublikasikan di halaman ini." },
+  {
+    title: "1. Ketentuan Umum",
+    items: [
+      "Pelanggan wajib mengisi data pemesanan dengan benar dan lengkap.",
+      "SASAK BIKE berhak melakukan verifikasi sebelum pesanan diproses.",
+      "Dengan melakukan pemesanan, pelanggan dianggap menyetujui seluruh ketentuan pada halaman ini.",
+    ],
+  },
+  {
+    title: "2. Area Layanan dan Pengiriman",
+    items: [
+      "Layanan COD difokuskan untuk wilayah Pulau Lombok.",
+      "Area layanan utama: Kota Mataram, Lombok Barat, Lombok Tengah, Lombok Timur, dan Lombok Utara.",
+      "Ketersediaan jadwal antar menyesuaikan rute, cuaca, dan antrean pesanan.",
+    ],
+  },
+  {
+    title: "3. Harga dan Ketersediaan Stok",
+    items: [
+      "Harga normal saat ini: Rp1.400.000 per unit (dapat berubah sesuai kebijakan toko).",
+      "Stok ditentukan berdasarkan ketersediaan varian saat pesanan masuk.",
+      "Konfirmasi akhir stok dilakukan oleh admin melalui WhatsApp.",
+    ],
+  },
+  {
+    title: "4. Pembatalan dan Penyesuaian Pesanan",
+    items: [
+      "Pembatalan dapat dilakukan sebelum pesanan masuk jadwal pengantaran.",
+      "Perubahan varian/alamat wajib diinformasikan secepatnya ke admin.",
+      "Pesanan dengan data tidak valid dapat ditunda atau dibatalkan demi keamanan transaksi.",
+    ],
+  },
+  {
+    title: "5. Komplain dan Penanganan Kendala",
+    items: [
+      "Keluhan mengenai unit yang diterima dapat diajukan maksimal 1x24 jam setelah barang diterima.",
+      "Pelanggan diminta menyertakan foto/video pendukung saat mengajukan komplain.",
+      "Tim SASAK BIKE akan memberikan solusi terbaik sesuai hasil verifikasi.",
+    ],
+  },
+  {
+    title: "6. Perubahan Ketentuan",
+    items: [
+      "SASAK BIKE dapat memperbarui isi syarat dan ketentuan sewaktu-waktu untuk meningkatkan kualitas layanan. Versi terbaru pada halaman ini berlaku sebagai acuan resmi.",
+    ],
+  },
 ];
 
 const Terms = () => (
   <PageLayout>
-    <PageHeader eyebrow="LEGAL" title="Syarat & Ketentuan" description="Mohon baca dengan saksama sebelum melakukan pemesanan." />
+    <PageHeader
+      eyebrow="LEGAL"
+      title="Syarat dan Ketentuan Layanan"
+      description="Dokumen ini mengatur ketentuan pemesanan, pembayaran, pengiriman, dan penggunaan layanan di SASAK BIKE."
+    />
     <section className="container py-14 max-w-4xl">
       <div className="flex items-center gap-3 mb-8 p-4 rounded-xl glass">
         <FileText className="h-5 w-5 text-primary" />
@@ -23,9 +65,20 @@ const Terms = () => (
       </div>
       <div className="space-y-5">
         {sections.map((s, i) => (
-          <div key={i} className="p-6 rounded-2xl bg-gradient-card border border-border transition-smooth hover:border-primary animate-fade-up" style={{ animationDelay: `${i * 60}ms` }}>
-            <h3 className="font-display font-bold text-lg mb-2 text-gradient">{s.title}</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">{s.body}</p>
+          <div
+            key={i}
+            className="p-6 rounded-2xl bg-gradient-card border border-border transition-smooth hover:border-primary animate-fade-up"
+            style={{ animationDelay: `${i * 60}ms` }}
+          >
+            <h3 className="font-display font-bold text-lg mb-3 text-gradient">{s.title}</h3>
+            <ul className="space-y-2">
+              {s.items.map((item, j) => (
+                <li key={j} className="flex gap-3 text-sm text-muted-foreground leading-relaxed">
+                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         ))}
       </div>
