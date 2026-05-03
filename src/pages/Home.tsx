@@ -31,11 +31,8 @@ const Home = () => {
                 Tentang Kami
               </Link>
             </div>
-            <div className="flex gap-8 pt-4 text-sm">
-              <div><p className="text-3xl font-black text-gradient font-display">4+</p><p className="text-muted-foreground">Model Premium</p></div>
-              <div><p className="text-3xl font-black text-gradient font-display">100%</p><p className="text-muted-foreground">Sepulau Lombok</p></div>
-              <div><p className="text-3xl font-black text-gradient font-display">COD</p><p className="text-muted-foreground">Bayar Di Tempat</p></div>
-            </div>
+          </div>
+
           </div>
 
           <div className="relative animate-float">
@@ -52,7 +49,6 @@ const Home = () => {
             { icon: Heart, title: "Hidup Lebih Sehat", desc: "Bersepeda rutin meningkatkan kebugaran tubuh." },
             { icon: Leaf, title: "Ramah Lingkungan", desc: "Tanpa emisi, menjaga udara Lombok tetap bersih." },
             { icon: Zap, title: "Praktis & Cepat", desc: "Bebas macet, hemat waktu dan biaya transport." },
-            { icon: Shield, title: "Garansi Resmi", desc: "Sepeda berkualitas dengan jaminan layanan." },
           ].map((f, i) => (
             <div key={i} className="p-6 rounded-2xl bg-gradient-card border border-border transition-smooth hover:border-primary hover:-translate-y-1 animate-fade-up" style={{ animationDelay: `${i * 80}ms` }}>
               <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
