@@ -70,7 +70,7 @@ const Home = () => {
             Lihat Semua <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 gap-3 sm:gap-5 md:gap-6 max-w-3xl mx-auto">
           {products.map((p, i) => <ProductCard key={p.id} product={p} index={i} />)}
         </div>
       </section>
