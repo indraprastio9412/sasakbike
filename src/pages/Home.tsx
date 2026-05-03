@@ -33,8 +33,6 @@ const Home = () => {
             </div>
           </div>
 
-          </div>
-
           <div className="relative animate-float">
             <div className="absolute inset-0 -z-10 blur-3xl opacity-60 bg-gradient-primary rounded-full" />
             <img src={logo} alt="Sasak Bike Hero" className="relative w-full max-w-md mx-auto rounded-full shadow-glow animate-pulse-glow" />
@@ -44,7 +42,7 @@ const Home = () => {
 
       {/* FEATURES */}
       <section className="container py-16">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-5">
           {[
             { icon: Heart, title: "Hidup Lebih Sehat", desc: "Bersepeda rutin meningkatkan kebugaran tubuh." },
             { icon: Leaf, title: "Ramah Lingkungan", desc: "Tanpa emisi, menjaga udara Lombok tetap bersih." },
