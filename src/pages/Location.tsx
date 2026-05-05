@@ -2,7 +2,7 @@ import PageLayout from "@/components/layout/PageLayout";
 import PageHeader from "@/components/PageHeader";
 import { MapPin, Truck } from "lucide-react";
 
-const areas = ["Mataram", "Cakranegara", "Senggigi", "Praya", "Selong", "Tanjung", "Sembalun", "Kuta Mandalika", "Bayan", "Pemenang", "Gerung", "Lembar"];
+const areas = ["Kota Mataram", "Lombok Barat", "Lombok Tengah", "Lombok Timur", "Lombok Utara"];
 
 const Location = () => (
   <PageLayout>
