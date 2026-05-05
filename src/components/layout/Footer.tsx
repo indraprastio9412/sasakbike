@@ -41,9 +41,9 @@ const Footer = () => (
       <div>
         <h4 className="font-display font-bold mb-4 text-sm tracking-widest">KONTAK</h4>
         <ul className="space-y-3 text-sm text-muted-foreground">
-          <li className="flex items-start gap-2"><MapPin className="h-4 w-4 mt-0.5 text-primary" /> Pulau Lombok, NTB</li>
+          <li className="flex items-start gap-2"><MapPin className="h-4 w-4 mt-0.5 text-primary" /> <a href="https://www.google.com/maps?q=-8.544763,116.363935" target="_blank" rel="noreferrer" className="hover:text-primary transition-smooth">Lihat di Google Maps</a></li>
           <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-primary" /> +62 831-1228-2090</li>
-          <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-primary" /> halo@sasakbike.id</li>
+          <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-primary" /> sasakbike9412@gmail.com</li>
           <li className="flex items-center gap-2"><Bike className="h-4 w-4 text-primary" /> COD Sepulau Lombok</li>
         </ul>
       </div>
