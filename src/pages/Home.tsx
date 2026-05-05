@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Heart, Leaf, Zap, MapPin, Truck } from "lucide-react";
+import { ArrowRight, Heart, Leaf, Zap, MapPin, Truck, Bike, Users, Mountain, Sun, ShieldCheck } from "lucide-react";
 import PageLayout from "@/components/layout/PageLayout";
 import ProductCard from "@/components/ProductCard";
 import { products } from "@/data/products";
