@@ -3,10 +3,18 @@ import { useState } from "react";
 import { z } from "zod";
 import PageLayout from "@/components/layout/PageLayout";
 import { products, formatRupiah } from "@/data/products";
-import { Check, MapPin, Loader2, ShieldCheck, Truck, ArrowLeft, MessageCircle, PackageCheck, BadgeCheck, Wallet } from "lucide-react";
+import { Check, MapPin, Loader2, ShieldCheck, Truck, ArrowLeft, PackageCheck, BadgeCheck, Wallet } from "lucide-react";
 import { toast } from "sonner";
 
+const WhatsAppIcon = ({ className = "h-5 w-5" }: { className?: string }) => (
+  <svg viewBox="0 0 32 32" fill="currentColor" className={className} aria-hidden="true">
+    <path d="M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 0 1-.315-.1c-.802-.402-1.504-.817-2.163-1.447-.545-.516-1.146-1.29-1.46-1.963a.426.426 0 0 1-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335-.143-.372-.214-.487-.6-.487-.187 0-.36-.043-.53-.043-.302 0-.53.115-.746.315-.688.645-1.032 1.318-1.06 2.264v.114c-.015.99.472 1.977 1.017 2.78 1.23 1.82 2.506 3.41 4.554 4.34.616.287 2.035.888 2.722.888.817 0 2.15-.515 2.493-1.318.13-.302.158-.49.158-.79 0-.17 0-.43-.13-.524-.143-.143-.6-.286-.973-.43z"/>
+    <path d="M16.013 0h-.027C7.176 0 0 7.176 0 15.987c0 3.503 1.13 6.745 3.043 9.385L1.054 31.31l5.94-1.9c2.553 1.69 5.604 2.677 8.998 2.677 8.812 0 15.987-7.176 15.987-15.987C32 7.176 24.825 0 16.013 0zm0 28.494c-3.073 0-5.93-.927-8.318-2.515l-5.81 1.86 1.886-5.617c-1.748-2.474-2.78-5.49-2.78-8.737C.99 7.728 7.728 1 16.013 1S31.01 7.728 31.01 16.013c0 8.286-6.737 15.014-14.997 15.014z"/>
+  </svg>
+);
+
 const WHATSAPP_NUMBER = "6283112282090";
+
 
 const schema = z.object({
   name: z.string().trim().min(3, "Nama minimal 3 karakter").max(100, "Nama maksimal 100 karakter"),
@@ -103,9 +111,9 @@ Mohon konfirmasi pesanan saya. Terima kasih!`;
 
         <div className="grid lg:grid-cols-2 gap-10">
           {/* LEFT — Image */}
-          <div className="relative rounded-3xl overflow-hidden bg-gradient-card border border-border p-6 animate-fade-up self-start lg:sticky lg:top-24">
+          <div className="relative rounded-3xl overflow-hidden bg-gradient-card border border-border animate-fade-up self-start lg:sticky lg:top-24 aspect-square">
             <div className="absolute inset-0 -z-10 opacity-40" style={{ background: `radial-gradient(circle at center, ${product.color}55, transparent 70%)` }} />
-            <img src={product.image} alt={product.name} className="w-full h-full object-contain animate-float" />
+            <img src={product.image} alt={product.name} className="absolute inset-0 w-full h-full object-cover" />
           </div>
 
           {/* RIGHT — Description */}
@@ -190,7 +198,7 @@ Mohon konfirmasi pesanan saya. Terima kasih!`;
                 onClick={() => setShowForm(true)}
                 className={`w-full inline-flex items-center justify-center gap-2 py-5 rounded-2xl bg-gradient-primary text-primary-foreground font-black text-lg hover:scale-[1.02] hover:shadow-glow ${orangeBtn}`}
               >
-                <MessageCircle className="h-5 w-5" /> Beli Sekarang
+                <WhatsAppIcon className="h-6 w-6" /> Beli Sekarang
               </button>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4 p-6 rounded-2xl bg-gradient-card border border-border">
@@ -253,7 +261,7 @@ Mohon konfirmasi pesanan saya. Terima kasih!`;
                   type="submit"
                   className={`w-full inline-flex items-center justify-center gap-2 py-4 rounded-xl bg-gradient-primary text-primary-foreground font-bold hover:scale-[1.02] hover:shadow-glow ${orangeBtn}`}
                 >
-                  <MessageCircle className="h-5 w-5" /> Kirim Pesanan via WhatsApp
+                  <WhatsAppIcon className="h-5 w-5" /> Kirim Pesanan via WhatsApp
                 </button>
 
                 <p className="text-center text-[11px] font-bold text-primary tracking-wider">

@@ -2,7 +2,7 @@ import PageLayout from "@/components/layout/PageLayout";
 import PageHeader from "@/components/PageHeader";
 import { MapPin, Truck } from "lucide-react";
 
-const areas = ["Mataram", "Cakranegara", "Senggigi", "Praya", "Selong", "Tanjung", "Sembalun", "Kuta Mandalika", "Bayan", "Pemenang", "Gerung", "Lembar"];
+const areas = ["Kota Mataram", "Lombok Barat", "Lombok Tengah", "Lombok Timur", "Lombok Utara"];
 
 const Location = () => (
   <PageLayout>
@@ -12,7 +12,7 @@ const Location = () => (
       <div className="rounded-3xl overflow-hidden border border-border shadow-card animate-fade-up">
         <iframe
           title="Lokasi Sasak Bike"
-          src="https://www.google.com/maps?q=Mataram,Lombok&output=embed"
+          src="https://www.google.com/maps?q=-8.544763,116.363935&z=17&output=embed"
           width="100%"
           height="450"
           style={{ border: 0, filter: "invert(0.92) hue-rotate(180deg)" }}
