@@ -30,7 +30,7 @@ const ProductCard = ({ product, index = 0 }: { product: Product; index?: number 
       <p className="text-base sm:text-xl lg:text-2xl font-black text-gradient mb-3 sm:mb-4">{formatRupiah(product.price)}</p>
 
       <span
-        className="mt-auto flex items-center justify-center gap-1.5 sm:gap-2 w-full h-10 sm:h-11 lg:h-12 rounded-lg sm:rounded-xl bg-gradient-primary text-primary-foreground font-bold text-[11px] sm:text-sm transition-smooth group-hover:bg-none group-hover:bg-orange-500 group-hover:shadow-[0_0_25px_rgba(249,115,22,0.6)] group-active:bg-orange-600"
+        className="mt-auto flex items-center justify-center gap-1.5 sm:gap-2 w-full h-10 sm:h-11 lg:h-12 rounded-lg sm:rounded-xl bg-gradient-primary text-primary-foreground font-bold text-[11px] sm:text-sm transition-smooth hover:bg-none hover:!bg-orange-500 hover:shadow-[0_0_25px_rgba(249,115,22,0.6)] active:!bg-orange-600"
       >
         <ShoppingBag className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0" /> Beli Sekarang
       </span>
