@@ -9,8 +9,8 @@ const Contact = () => (
       {[
         { icon: MessageCircle, title: "WhatsApp", value: "+62 831-1228-2090", href: "https://wa.me/6283112282090" },
         { icon: Phone, title: "Telepon", value: "+62 831-1228-2090", href: "tel:+6283112282090" },
-        { icon: Mail, title: "Email", value: "halo@sasakbike.id", href: "mailto:halo@sasakbike.id" },
-        { icon: MapPin, title: "Alamat", value: "Pulau Lombok, NTB", href: "/lokasi" },
+        { icon: Mail, title: "Email", value: "sasakbike9412@gmail.com", href: "mailto:sasakbike9412@gmail.com" },
+        { icon: MapPin, title: "Alamat", value: "Lihat di Google Maps", href: "https://www.google.com/maps?q=-8.544763,116.363935" },
         { icon: Clock, title: "Jam Operasional", value: "Senin - Minggu, 08.00 - 21.00 WITA" },
       ].map((c, i) => (
         <a
