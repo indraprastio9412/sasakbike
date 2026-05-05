@@ -261,7 +261,7 @@ Mohon konfirmasi pesanan saya. Terima kasih!`;
                   type="submit"
                   className={`w-full inline-flex items-center justify-center gap-2 py-4 rounded-xl bg-gradient-primary text-primary-foreground font-bold hover:scale-[1.02] hover:shadow-glow ${orangeBtn}`}
                 >
-                  <MessageCircle className="h-5 w-5" /> Kirim Pesanan via WhatsApp
+                  <WhatsAppIcon className="h-5 w-5" /> Kirim Pesanan via WhatsApp
                 </button>
 
                 <p className="text-center text-[11px] font-bold text-primary tracking-wider">
