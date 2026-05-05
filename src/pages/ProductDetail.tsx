@@ -103,9 +103,9 @@ Mohon konfirmasi pesanan saya. Terima kasih!`;
 
         <div className="grid lg:grid-cols-2 gap-10">
           {/* LEFT — Image */}
-          <div className="relative rounded-3xl overflow-hidden bg-gradient-card border border-border p-6 animate-fade-up self-start lg:sticky lg:top-24">
+          <div className="relative rounded-3xl overflow-hidden bg-gradient-card border border-border animate-fade-up self-start lg:sticky lg:top-24 aspect-square">
             <div className="absolute inset-0 -z-10 opacity-40" style={{ background: `radial-gradient(circle at center, ${product.color}55, transparent 70%)` }} />
-            <img src={product.image} alt={product.name} className="w-full h-full object-contain animate-float" />
+            <img src={product.image} alt={product.name} className="absolute inset-0 w-full h-full object-cover" />
           </div>
 
           {/* RIGHT — Description */}
