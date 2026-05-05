@@ -190,7 +190,7 @@ Mohon konfirmasi pesanan saya. Terima kasih!`;
                 onClick={() => setShowForm(true)}
                 className={`w-full inline-flex items-center justify-center gap-2 py-5 rounded-2xl bg-gradient-primary text-primary-foreground font-black text-lg hover:scale-[1.02] hover:shadow-glow ${orangeBtn}`}
               >
-                <MessageCircle className="h-5 w-5" /> Beli Sekarang
+                <WhatsAppIcon className="h-6 w-6" /> Beli Sekarang
               </button>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4 p-6 rounded-2xl bg-gradient-card border border-border">
