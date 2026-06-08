@@ -5,6 +5,7 @@ import ProductCard from "@/components/ProductCard";
 import ProductPlaceholder from "@/components/ProductPlaceholder";
 import SEO from "@/components/SEO";
 import { products, EMPTY_PRODUCT_SLOTS } from "@/data/products";
+import { SITE_URL } from "@/lib/site-config";
 import heroVideo from "@/assets/hero-bike.mp4";
 
 const Home = () => {
@@ -14,6 +15,14 @@ const Home = () => {
         title="Sasak Bike — Sepeda Mazara R633 Rp 1.500.000, COD Lombok"
         description="Toko sepeda terpercaya di Pulau Lombok. Mazara R633 Rp 1.500.000 — COD bayar di tempat, antar sepulau Lombok."
         path="/"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Sasak Bike",
+          url: SITE_URL,
+          description: "Toko sepeda terpercaya di Pulau Lombok dengan layanan COD sepulau Lombok.",
+          inLanguage: "id",
+        }}
       />
       {/* HERO */}
       <section className="relative overflow-hidden">
@@ -45,6 +54,7 @@ const Home = () => {
                 loop
                 muted
                 playsInline
+                aria-label="Video promosi sepeda Sasak Bike"
                 className="absolute inset-0 h-full w-full object-cover"
               />
             </div>

@@ -7,6 +7,7 @@ import {
   getWhatsAppInternationalNumber,
 } from "@/lib/whatsapp-config";
 import { STORE_MAPS_URL } from "@/lib/store-location";
+import { absoluteUrl } from "@/lib/site-config";
 import { Phone, Mail, MapPin, MessageCircle, Clock } from "lucide-react";
 
 const waDisplay = formatWhatsAppDisplay();
@@ -24,9 +25,14 @@ const Contact = () => (
         name: "Sasak Bike",
         telephone: `+${waIntl}`,
         email: "sasakbike9412@gmail.com",
-        url: "https://sasakbike.lovable.app/kontak",
+        url: absoluteUrl("/kontak"),
         address: { "@type": "PostalAddress", addressLocality: "Lombok", addressRegion: "NTB", addressCountry: "ID" },
-        openingHours: "Mo-Su 08:00-21:00",
+        openingHoursSpecification: [{
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          opens: "08:00",
+          closes: "21:00",
+        }],
       }}
     />
     <PageHeader eyebrow="HUBUNGI KAMI" title="Kontak" description="Tim Sasak Bike siap membantumu — dari konsultasi sepeda sampai pengantaran." />

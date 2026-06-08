@@ -7,6 +7,7 @@ import BuyerOrderForm, {
   WhatsAppIcon,
 } from "@/components/BuyerOrderForm";
 import { products, formatRupiah } from "@/data/products";
+import { absoluteUrl } from "@/lib/site-config";
 import {
   buildOrderWhatsAppMessage,
   sendOrderViaWhatsApp,
@@ -86,21 +87,33 @@ const ProductDetail = () => {
         title={`${product.name} — ${formatRupiah(product.price)} | Sasak Bike`}
         description={`${product.name} — ${product.tagline}. Harga ${formatRupiah(product.price)}, COD sepulau Lombok.`}
         path={`/produk/${product.id}`}
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@type": "Product",
-          name: product.name,
-          description: product.tagline,
-          image: `https://sasakbike.lovable.app${product.image}`,
-          brand: { "@type": "Brand", name: "Sasak Bike" },
-          offers: {
-            "@type": "Offer",
-            price: product.price,
-            priceCurrency: "IDR",
-            availability: "https://schema.org/InStock",
-            url: `https://sasakbike.lovable.app/produk/${product.id}`,
+        ogImage={absoluteUrl(selectedVariant.image)}
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: product.name,
+            description: product.tagline,
+            image: absoluteUrl(selectedVariant.image),
+            brand: { "@type": "Brand", name: "Sasak Bike" },
+            offers: {
+              "@type": "Offer",
+              price: product.price,
+              priceCurrency: "IDR",
+              availability: "https://schema.org/InStock",
+              url: absoluteUrl(`/produk/${product.id}`),
+            },
           },
-        }}
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Beranda", item: absoluteUrl("/") },
+              { "@type": "ListItem", position: 2, name: "Produk", item: absoluteUrl("/produk") },
+              { "@type": "ListItem", position: 3, name: product.name, item: absoluteUrl(`/produk/${product.id}`) },
+            ],
+          },
+        ]}
       />
 
       <section className="container max-w-5xl px-4 sm:px-6 py-4 sm:py-6 pb-28 lg:pb-10">
@@ -142,7 +155,7 @@ const ProductDetail = () => {
                   >
                     <img
                       src={v.image}
-                      alt={v.label}
+                      alt={`${product.name} — ${v.label}`}
                       className="h-full w-full object-cover"
                     />
                   </button>
@@ -211,7 +224,7 @@ const ProductDetail = () => {
                       <span className="w-8 h-8 rounded overflow-hidden bg-black shrink-0 border border-border/50">
                         <img
                           src={v.image}
-                          alt=""
+                          alt={`${product.name} warna ${v.label}`}
                           className="h-full w-full object-cover"
                         />
                       </span>

@@ -1,19 +1,30 @@
 # Sasak Bike
 
-> Toko sepeda terpercaya di Pulau Lombok. Sepeda Mazara R633 berkualitas seharga Rp 1.500.000 dengan pembayaran COD dan pengantaran sepulau Lombok.
+> Toko sepeda terpercaya di Pulau Lombok. Sepeda berkualitas dengan harga merakyat dan pembayaran COD serta pengantaran sepulau Lombok.
 
-Sasak Bike menjual sepeda Mazara R633 (empat varian warna) dengan harga Rp 1.500.000. Layanan COD (bayar di tempat) tersedia di seluruh Pulau Lombok: Mataram, Lombok Barat, Tengah, Timur, dan Utara. Pemesanan dilakukan via WhatsApp.
+Website: https://sasakbike.web.id
+
+Sasak Bike menjual berbagai sepeda (Mazara R633, Maximus Altarra, Mazara 9933TH, Rolet BIGO 3.0, Family F-918, Vortec 9002) dengan harga Rp 1.100.000–Rp 1.500.000. Layanan COD (bayar di tempat) tersedia di seluruh Pulau Lombok: Mataram, Lombok Barat, Tengah, Timur, dan Utara. Pemesanan dilakukan via WhatsApp.
 
 ## Pages
 
-- [Beranda](/): Ringkasan produk dan promosi Sasak Bike.
-- [Produk](/produk): Daftar empat varian sepeda Mazara R633.
-- [Tentang Kami](/tentang): Cerita dan misi Sasak Bike.
-- [Kontak](/kontak): WhatsApp, email, dan jam operasional.
-- [Lokasi](/lokasi): Area pengantaran sepulau Lombok.
-- [Cara Pemesanan](/cara-pemesanan): Panduan pesan & pembayaran COD.
+- [Beranda](https://sasakbike.web.id/): Ringkasan produk dan promosi Sasak Bike.
+- [Produk](https://sasakbike.web.id/produk): Daftar koleksi sepeda Sasak Bike.
+- [Tentang Kami](https://sasakbike.web.id/tentang): Cerita dan misi Sasak Bike.
+- [Kontak](https://sasakbike.web.id/kontak): WhatsApp, email, dan jam operasional.
+- [Lokasi](https://sasakbike.web.id/lokasi): Area pengantaran sepulau Lombok.
+- [Cara Pemesanan](https://sasakbike.web.id/cara-pemesanan): Panduan pesan & pembayaran COD.
+
+## Products
+
+- [Mazara R633](https://sasakbike.web.id/produk/mazara-r633)
+- [Maximus Altarra 3321-1](https://sasakbike.web.id/produk/maximus-altarra-3321)
+- [Mazara 9933TH](https://sasakbike.web.id/produk/mazara-9933th)
+- [Rolet BIGO 3.0](https://sasakbike.web.id/produk/rolet-bigo-3)
+- [Family F-918 Spongebob](https://sasakbike.web.id/produk/family-f918-spongebob)
+- [Vortec 9002 BMX](https://sasakbike.web.id/produk/vortec-9002-bmx)
 
 ## Optional
 
-- [Syarat & Ketentuan](/syarat-ketentuan)
-- [Kebijakan Privasi](/kebijakan-privasi)
+- [Syarat & Ketentuan](https://sasakbike.web.id/syarat-ketentuan)
+- [Kebijakan Privasi](https://sasakbike.web.id/kebijakan-privasi)

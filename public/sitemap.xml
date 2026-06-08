@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://sasakbike.lovable.app/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://sasakbike.lovable.app/produk</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://sasakbike.lovable.app/produk/mazara-r633</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sasakbike.lovable.app/produk/maximus-altarra-3321</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sasakbike.lovable.app/produk/mazara-9933th</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sasakbike.lovable.app/produk/rolet-bigo-3</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sasakbike.lovable.app/tentang</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://sasakbike.lovable.app/kontak</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://sasakbike.lovable.app/lokasi</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://sasakbike.lovable.app/cara-pemesanan</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://sasakbike.lovable.app/syarat-ketentuan</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://sasakbike.lovable.app/kebijakan-privasi</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://sasakbike.web.id/</loc><lastmod>2026-06-07</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://sasakbike.web.id/produk</loc><lastmod>2026-06-07</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://sasakbike.web.id/produk/mazara-r633</loc><lastmod>2026-06-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sasakbike.web.id/produk/maximus-altarra-3321</loc><lastmod>2026-06-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sasakbike.web.id/produk/mazara-9933th</loc><lastmod>2026-06-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sasakbike.web.id/produk/rolet-bigo-3</loc><lastmod>2026-06-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sasakbike.web.id/produk/family-f918-spongebob</loc><lastmod>2026-06-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sasakbike.web.id/produk/vortec-9002-bmx</loc><lastmod>2026-06-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sasakbike.web.id/tentang</loc><lastmod>2026-06-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sasakbike.web.id/kontak</loc><lastmod>2026-06-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sasakbike.web.id/lokasi</loc><lastmod>2026-06-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sasakbike.web.id/cara-pemesanan</loc><lastmod>2026-06-07</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://sasakbike.web.id/syarat-ketentuan</loc><lastmod>2026-06-07</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://sasakbike.web.id/kebijakan-privasi</loc><lastmod>2026-06-07</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>

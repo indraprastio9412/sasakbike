@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://sasakbike.lovable.app/sitemap.xml
+Sitemap: https://sasakbike.web.id/sitemap.xml

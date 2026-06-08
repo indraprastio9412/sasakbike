@@ -15,7 +15,7 @@ const ProductCard = ({ product, index = 0 }: { product: Product; index?: number 
       />
       <img
         src={product.image}
-        alt={product.name}
+        alt={`${product.name} — ${product.tagline}`}
         loading="lazy"
         className="relative h-full w-full object-cover transition-smooth group-hover:scale-110"
       />

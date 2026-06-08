@@ -4,6 +4,7 @@ import ProductCard from "@/components/ProductCard";
 import ProductPlaceholder from "@/components/ProductPlaceholder";
 import SEO from "@/components/SEO";
 import { products, EMPTY_PRODUCT_SLOTS } from "@/data/products";
+import { absoluteUrl } from "@/lib/site-config";
 
 const Products = () => (
   <PageLayout>
@@ -17,7 +18,7 @@ const Products = () => (
         itemListElement: products.map((p, i) => ({
           "@type": "ListItem",
           position: i + 1,
-          url: `https://sasakbike.lovable.app/produk/${p.id}`,
+          url: absoluteUrl(`/produk/${p.id}`),
           name: p.name,
         })),
       }}
