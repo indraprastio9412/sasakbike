@@ -1,0 +1,19 @@
+# Sasak Bike
+
+> Toko sepeda terpercaya di Pulau Lombok. Sepeda Mazara R633 berkualitas seharga Rp 1.500.000 dengan pembayaran COD dan pengantaran sepulau Lombok.
+
+Sasak Bike menjual sepeda Mazara R633 (empat varian warna) dengan harga Rp 1.500.000. Layanan COD (bayar di tempat) tersedia di seluruh Pulau Lombok: Mataram, Lombok Barat, Tengah, Timur, dan Utara. Pemesanan dilakukan via WhatsApp.
+
+## Pages
+
+- [Beranda](/): Ringkasan produk dan promosi Sasak Bike.
+- [Produk](/produk): Daftar empat varian sepeda Mazara R633.
+- [Tentang Kami](/tentang): Cerita dan misi Sasak Bike.
+- [Kontak](/kontak): WhatsApp, email, dan jam operasional.
+- [Lokasi](/lokasi): Area pengantaran sepulau Lombok.
+- [Cara Pemesanan](/cara-pemesanan): Panduan pesan & pembayaran COD.
+
+## Optional
+
+- [Syarat & Ketentuan](/syarat-ketentuan)
+- [Kebijakan Privasi](/kebijakan-privasi)
