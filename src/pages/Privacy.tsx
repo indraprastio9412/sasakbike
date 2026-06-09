@@ -1,7 +1,10 @@
 import PageLayout from "@/components/layout/PageLayout";
 import PageHeader from "@/components/PageHeader";
 import SEO from "@/components/SEO";
+import { formatWhatsAppDisplay } from "@/lib/whatsapp-config";
 import { ShieldCheck, Lock, Eye, Database, UserCheck, Mail } from "lucide-react";
+
+const waDisplay = formatWhatsAppDisplay();
 
 const items = [
   { icon: Database, title: "Data yang Kami Kumpulkan", body: "Nama lengkap, nomor HP/WhatsApp, alamat pengiriman, dan koordinat GPS (opsional, hanya jika Anda mengizinkan) — semata-mata untuk kebutuhan pengantaran sepeda." },
@@ -9,7 +12,7 @@ const items = [
   { icon: Lock, title: "Keamanan Data", body: "Kami menerapkan praktik keamanan terbaik. Data percakapan dikirim langsung melalui WhatsApp resmi dengan enkripsi end-to-end. Tidak ada data sensitif yang disimpan di server publik." },
   { icon: UserCheck, title: "Hak Anda", body: "Anda berhak meminta penghapusan data pribadi Anda kapan saja dengan menghubungi kami via WhatsApp resmi. Permintaan akan diproses maksimal 7 hari kerja." },
   { icon: ShieldCheck, title: "Lokasi GPS", body: "Fitur deteksi lokasi bersifat opsional dan memerlukan izin eksplisit dari browser Anda. Lokasi hanya dipakai untuk membantu kurir menemukan alamat pengantaran secara akurat." },
-  { icon: Mail, title: "Kontak Privasi", body: "Untuk pertanyaan terkait privasi, silakan hubungi +62 831-1228-2090 atau halo@sasakbike.id." },
+  { icon: Mail, title: "Kontak Privasi", body: `Untuk pertanyaan terkait privasi, silakan hubungi ${waDisplay} atau halo@sasakbike.id.` },
 ];
 
 const Privacy = () => (

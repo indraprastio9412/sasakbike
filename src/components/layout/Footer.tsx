@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, Bike } from "lucide-react";
 import { STORE_MAPS_URL } from "@/lib/store-location";
+import { formatWhatsAppDisplay } from "@/lib/whatsapp-config";
 import logo from "@/assets/logo.webp";
 
 const Footer = () => (
@@ -43,7 +44,7 @@ const Footer = () => (
         <h4 className="font-display font-bold mb-4 text-sm tracking-widest">KONTAK</h4>
         <ul className="space-y-3 text-sm text-muted-foreground">
           <li className="flex items-start gap-2"><MapPin className="h-4 w-4 mt-0.5 text-primary" /> <a href={STORE_MAPS_URL} target="_blank" rel="noreferrer" className="hover:text-primary transition-smooth">Lihat di Google Maps</a></li>
-          <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-primary" /> +62 831-1228-2090</li>
+          <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-primary" /> {formatWhatsAppDisplay()}</li>
           <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-primary" /> sasakbike9412@gmail.com</li>
           <li className="flex items-center gap-2"><Bike className="h-4 w-4 text-primary" /> COD Sepulau Lombok</li>
         </ul>
