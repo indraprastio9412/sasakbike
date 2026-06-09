@@ -2,10 +2,14 @@ import { useParams, Link, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import PageLayout from "@/components/layout/PageLayout";
 import SEO from "@/components/SEO";
+import BuyerOrderForm, {
+  type BuyerOrderPayload,
+  WhatsAppIcon,
+} from "@/components/BuyerOrderForm";
 import { products, formatRupiah } from "@/data/products";
 import { absoluteUrl } from "@/lib/site-config";
 import {
-  buildQuickOrderWhatsAppMessage,
+  buildOrderWhatsAppMessage,
   sendOrderViaWhatsApp,
 } from "@/lib/whatsapp-order";
 import {
@@ -15,6 +19,7 @@ import {
   ShoppingCart,
   ChevronRight,
   ShieldCheck,
+  Loader2,
   Minus,
   Plus,
 } from "lucide-react";
@@ -28,7 +33,8 @@ const ProductDetail = () => {
   );
   const [size, setSize] = useState(product?.sizes[0] ?? "26");
   const [quantity, setQuantity] = useState(1);
-  const [openingWhatsApp, setOpeningWhatsApp] = useState(false);
+  const [showForm, setShowForm] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   const MAX_QUANTITY = 99;
 
@@ -37,6 +43,7 @@ const ProductDetail = () => {
       setSelectedVariant(product.variants[0]);
       setSize(product.sizes[0] ?? "26");
       setQuantity(1);
+      setShowForm(false);
     }
   }, [product?.id]);
 
@@ -45,23 +52,34 @@ const ProductDetail = () => {
   const stockStatus =
     product.specs.find((s) => s.label === "Status")?.value ?? "READY STOK";
 
-  const handleBuyNow = async () => {
-    setOpeningWhatsApp(true);
+  const handleOrderSubmit = async (data: BuyerOrderPayload) => {
+    setSubmitting(true);
     try {
-      const message = buildQuickOrderWhatsAppMessage({
-        productName: product.name,
+      const message = buildOrderWhatsAppMessage({
         variantLabel: selectedVariant.label,
         unitPrice: product.price,
         quantity,
         size: product.sizes.length > 0 ? size : undefined,
+        buyerName: data.name,
+        buyerPhone: data.phone,
+        fullAddress: data.fullAddress,
+        mapsLink: data.mapsLink,
       });
 
       toast.success("Membuka WhatsApp...");
       await sendOrderViaWhatsApp(message);
     } finally {
-      setOpeningWhatsApp(false);
+      setSubmitting(false);
     }
   };
+
+  const orderForm = (
+    <BuyerOrderForm
+      onSubmit={handleOrderSubmit}
+      submitting={submitting}
+      hideSubmitOnMobile
+    />
+  );
 
   return (
     <PageLayout>
@@ -290,15 +308,20 @@ const ProductDetail = () => {
 
             {/* Tombol aksi — desktop */}
             <div className="hidden md:block mt-5 space-y-3">
-              <button
-                type="button"
-                onClick={handleBuyNow}
-                disabled={openingWhatsApp}
-                className="btn-buy flex-1 w-full inline-flex items-center justify-center gap-2 py-3 rounded-md text-sm sm:text-base shadow-glow disabled:opacity-70"
-              >
-                <ShoppingCart className="h-5 w-5" />
-                {openingWhatsApp ? "Membuka WhatsApp..." : "Beli Sekarang"}
-              </button>
+              {!showForm ? (
+                <div className="flex gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setShowForm(true)}
+                    className="btn-buy flex-1 inline-flex items-center justify-center gap-2 py-3 rounded-md text-sm sm:text-base shadow-glow"
+                  >
+                    <ShoppingCart className="h-5 w-5" />
+                    Beli Sekarang
+                  </button>
+                </div>
+              ) : (
+                orderForm
+              )}
             </div>
           </div>
         </div>
@@ -360,16 +383,40 @@ const ProductDetail = () => {
 
         {/* Mobile: tombol beli menempel bawah */}
         <div className="md:hidden fixed bottom-0 inset-x-0 z-40 flex gap-2 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] border-t border-border bg-background/95 backdrop-blur-md">
-          <button
-            type="button"
-            onClick={handleBuyNow}
-            disabled={openingWhatsApp}
-            className="btn-buy flex-1 inline-flex items-center justify-center gap-2 py-3.5 rounded-md text-base shadow-glow disabled:opacity-70"
-          >
-            <ShoppingCart className="h-5 w-5" />
-            {openingWhatsApp ? "Membuka WhatsApp..." : "Beli Sekarang"}
-          </button>
+          {!showForm ? (
+            <button
+              type="button"
+              onClick={() => setShowForm(true)}
+              className="btn-buy flex-1 inline-flex items-center justify-center gap-2 py-3.5 rounded-md text-base shadow-glow"
+            >
+              <ShoppingCart className="h-5 w-5" />
+              Beli Sekarang
+            </button>
+          ) : (
+            <button
+              type="submit"
+              form="buyer-order-form"
+              disabled={submitting}
+              className="btn-buy flex-1 inline-flex items-center justify-center gap-2 py-3.5 rounded-md text-base shadow-glow"
+            >
+              {submitting ? (
+                <Loader2 className="h-5 w-5 animate-spin" />
+              ) : (
+                <WhatsAppIcon className="h-5 w-5" />
+              )}
+              {submitting ? "Mengirim..." : "Kirim Pesanan via WhatsApp"}
+            </button>
+          )}
         </div>
+
+        {showForm && (
+          <div
+            className="md:hidden mt-6 rounded-lg border border-border bg-gradient-card p-4"
+            style={{ paddingBottom: 88 }}
+          >
+            {orderForm}
+          </div>
+        )}
       </section>
     </PageLayout>
   );

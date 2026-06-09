@@ -24,37 +24,6 @@ export function formatRupiahWa(amount: number): string {
   return `Rp${amount.toLocaleString("id-ID")}`;
 }
 
-/** Pesan singkat saat klik Beli Sekarang (tanpa form pembeli). */
-export function buildQuickOrderWhatsAppMessage(input: {
-  productName: string;
-  variantLabel: string;
-  unitPrice: number;
-  quantity: number;
-  size?: string;
-}): string {
-  const lines = [
-    "Halo Admin SASAK BIKE, saya ingin pesan sepeda.",
-    "",
-    "Detail Pesanan",
-    `- Produk: ${input.productName}`,
-    `- Varian: ${input.variantLabel}`,
-  ];
-
-  if (input.size) {
-    lines.push(`- Ukuran: ${input.size} inch`);
-  }
-
-  lines.push(
-    `- Harga: ${formatRupiahWa(input.unitPrice)}`,
-    `- Jumlah: ${input.quantity} unit`,
-    `- Pembayaran: COD (Pulau Lombok)`,
-    "",
-    "Mohon konfirmasi stok dan jadwal pengantaran. Terima kasih!",
-  );
-
-  return lines.join("\n");
-}
-
 /** Susun pesan WhatsApp sesuai format admin Sasak Bike. */
 export function buildOrderWhatsAppMessage(input: OrderMessageInput): string {
   const lines = [
