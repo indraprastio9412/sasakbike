@@ -32,6 +32,29 @@ export type ProductSpec = {
   value: string;
 };
 
+export type ProductCategoryId =
+  | "semua"
+  | "anak-anak"
+  | "dewasa"
+  | "bmx"
+  | "roda-tiga"
+  | "city-bike";
+
+export type ProductCategory = {
+  id: ProductCategoryId;
+  label: string;
+  description: string;
+};
+
+export const PRODUCT_CATEGORIES: ProductCategory[] = [
+  { id: "semua", label: "Semua Produk", description: "Seluruh koleksi sepeda Sasak Bike" },
+  { id: "anak-anak", label: "Sepeda Anak-Anak", description: "Sepeda untuk balita, anak, dan remaja" },
+  { id: "dewasa", label: "Sepeda Dewasa", description: "Sepeda ukuran dewasa, tangguh dan nyaman" },
+  { id: "bmx", label: "BMX", description: "Sepeda BMX freestyle untuk anak dan remaja" },
+  { id: "roda-tiga", label: "Sepeda Roda Tiga", description: "Sepeda roda tiga aman untuk balita" },
+  { id: "city-bike", label: "City Bike", description: "Sepeda keranjang / city bike praktis" },
+];
+
 export type Product = {
   id: string;
   name: string;
@@ -42,6 +65,8 @@ export type Product = {
   variants: ProductVariant[];
   specs: ProductSpec[];
   sizes: string[];
+  categories: Exclude<ProductCategoryId, "semua">[];
+  searchKeywords?: string[];
 };
 
 export const EMPTY_PRODUCT_SLOTS = 0;
@@ -195,6 +220,8 @@ export const products: Product[] = [
     image: bikeYellow,
     color: "#f5a524",
     sizes: ["24", "26"],
+    categories: ["dewasa"],
+    searchKeywords: ["sepeda dewasa", "mtb", "mazara", "pacific", "6633"],
     specs: mazaraSpecs,
     variants: [
       { id: "yellow", label: "Yellow Strike", color: "#f5a524", image: bikeYellow },
@@ -211,6 +238,8 @@ export const products: Product[] = [
     image: maximusRed,
     color: "#ef4444",
     sizes: ["20"],
+    categories: ["anak-anak", "bmx"],
+    searchKeywords: ["sepeda anak anak", "bmx anak", "maximus", "remaja"],
     specs: maximusSpecs,
     variants: [
       { id: "red", label: "Merah", color: "#ef4444", image: maximusRed },
@@ -227,6 +256,8 @@ export const products: Product[] = [
     image: mazara9933Ungu,
     color: "#9333ea",
     sizes: ["20"],
+    categories: ["anak-anak", "city-bike"],
+    searchKeywords: ["sepeda anak perempuan", "sepeda keranjang", "city bike anak", "ctb"],
     specs: mazara9933Specs,
     variants: [
       { id: "ungu", label: "Ungu", color: "#9333ea", image: mazara9933Ungu },
@@ -243,6 +274,8 @@ export const products: Product[] = [
     image: roletBigoHitamMerahTosca,
     color: "#ef4444",
     sizes: ["16"],
+    categories: ["anak-anak", "bmx"],
+    searchKeywords: ["sepeda anak laki laki", "bmx 16 inch", "rolet bigo"],
     specs: roletBigoSpecs,
     variants: [
       {
@@ -273,6 +306,8 @@ export const products: Product[] = [
     image: familyF918Spongebob,
     color: "#3b82f6",
     sizes: [],
+    categories: ["anak-anak", "roda-tiga"],
+    searchKeywords: ["sepeda roda tiga", "sepeda balita", "tricycle", "spongebob", "family"],
     specs: familyF918SpongebobSpecs,
     variants: [
       {
@@ -303,6 +338,8 @@ export const products: Product[] = [
     image: vortec9002Merah,
     color: "#ef4444",
     sizes: ["16"],
+    categories: ["anak-anak", "bmx"],
+    searchKeywords: ["sepeda anak anak", "bmx anak", "vortec 9002"],
     specs: vortec9002Specs,
     variants: [
       {

@@ -12,11 +12,13 @@ import {
   buildOrderWhatsAppMessage,
   sendOrderViaWhatsApp,
 } from "@/lib/whatsapp-order";
+import { useCart } from "@/context/CartContext";
 import {
   Truck,
   ArrowLeft,
   Wallet,
   ShoppingCart,
+  ShoppingBag,
   ChevronRight,
   ShieldCheck,
   Loader2,
@@ -28,6 +30,7 @@ import { toast } from "sonner";
 const ProductDetail = () => {
   const { id } = useParams();
   const product = products.find((p) => p.id === id);
+  const { addToCart } = useCart();
   const [selectedVariant, setSelectedVariant] = useState(
     product?.variants[0] ?? null,
   );
@@ -56,6 +59,7 @@ const ProductDetail = () => {
     setSubmitting(true);
     try {
       const message = buildOrderWhatsAppMessage({
+        productName: product.name,
         variantLabel: selectedVariant.label,
         unitPrice: product.price,
         quantity,
@@ -71,6 +75,25 @@ const ProductDetail = () => {
     } finally {
       setSubmitting(false);
     }
+  };
+
+  const handleAddToCart = () => {
+    addToCart({
+      productId: product.id,
+      variantId: selectedVariant.id,
+      size: product.sizes.length > 0 ? size : undefined,
+      quantity,
+    });
+
+    toast.success("Ditambahkan ke keranjang", {
+      description: `${product.name} · ${selectedVariant.label}`,
+      action: {
+        label: "Lihat keranjang",
+        onClick: () => {
+          window.location.href = "/keranjang";
+        },
+      },
+    });
   };
 
   const orderForm = (
@@ -312,10 +335,18 @@ const ProductDetail = () => {
                 <div className="flex gap-3">
                   <button
                     type="button"
+                    onClick={handleAddToCart}
+                    className="flex-1 inline-flex items-center justify-center gap-2 py-3 rounded-md text-sm sm:text-base border border-primary/50 text-primary bg-primary/10 hover:bg-primary/20 transition-smooth font-bold"
+                  >
+                    <ShoppingCart className="h-5 w-5" />
+                    Keranjang
+                  </button>
+                  <button
+                    type="button"
                     onClick={() => setShowForm(true)}
                     className="btn-buy flex-1 inline-flex items-center justify-center gap-2 py-3 rounded-md text-sm sm:text-base shadow-glow"
                   >
-                    <ShoppingCart className="h-5 w-5" />
+                    <ShoppingBag className="h-5 w-5" />
                     Beli Sekarang
                   </button>
                 </div>
@@ -384,14 +415,24 @@ const ProductDetail = () => {
         {/* Mobile: tombol beli menempel bawah */}
         <div className="md:hidden fixed bottom-0 inset-x-0 z-40 flex gap-2 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] border-t border-border bg-background/95 backdrop-blur-md">
           {!showForm ? (
-            <button
-              type="button"
-              onClick={() => setShowForm(true)}
-              className="btn-buy flex-1 inline-flex items-center justify-center gap-2 py-3.5 rounded-md text-base shadow-glow"
-            >
-              <ShoppingCart className="h-5 w-5" />
-              Beli Sekarang
-            </button>
+            <>
+              <button
+                type="button"
+                onClick={handleAddToCart}
+                className="inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-md text-sm font-bold border border-primary/50 text-primary bg-primary/10"
+              >
+                <ShoppingCart className="h-5 w-5" />
+                Keranjang
+              </button>
+              <button
+                type="button"
+                onClick={() => setShowForm(true)}
+                className="btn-buy flex-1 inline-flex items-center justify-center gap-2 py-3.5 rounded-md text-base shadow-glow"
+              >
+                <ShoppingBag className="h-5 w-5" />
+                Beli Sekarang
+              </button>
+            </>
           ) : (
             <button
               type="submit"

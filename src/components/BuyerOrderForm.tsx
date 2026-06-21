@@ -52,6 +52,7 @@ type BuyerOrderFormProps = {
   submitting?: boolean;
   /** Sembunyikan tombol submit di mobile — pakai tombol sticky di halaman produk */
   hideSubmitOnMobile?: boolean;
+  submitLabel?: string;
 };
 
 const schema = z.object({
@@ -84,6 +85,7 @@ const BuyerOrderForm = ({
   onSubmit,
   submitting,
   hideSubmitOnMobile = false,
+  submitLabel = "Kirim Pesanan via WhatsApp",
 }: BuyerOrderFormProps) => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -476,7 +478,7 @@ const BuyerOrderForm = ({
         ) : (
           <WhatsAppIcon className="h-5 w-5" />
         )}
-        {submitting ? "Mengirim..." : "Kirim Pesanan via WhatsApp"}
+        {submitting ? "Mengirim..." : submitLabel}
       </button>
     </form>
   );
