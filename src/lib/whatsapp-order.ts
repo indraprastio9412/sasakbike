@@ -124,21 +124,19 @@ export function buildCartWhatsAppMessage(input: CartOrderMessageInput): string {
 }
 
 /**
- * Buka WhatsApp dengan pesan pesanan.
- * Menggunakan api.whatsapp.com agar lebih stabil di HP & desktop.
+ * Arahkan pengguna ke WhatsApp dengan pesan pesanan yang sudah disusun.
+ *
+ * Catatan perbaikan: sebelumnya fungsi ini mencoba window.open(...,"noopener")
+ * lalu fallback ke redirect bila gagal. Masalahnya, window.open dengan opsi
+ * "noopener" SELALU mengembalikan null (sesuai spesifikasi browser), jadi
+ * deteksi "berhasil/gagal"-nya tidak pernah akurat — di beberapa browser/HP
+ * tombol "Beli Sekarang" jadi terasa tidak mengarahkan ke WhatsApp sama sekali
+ * (pop-up diblokir & fallback-nya tidak konsisten).
+ *
+ * Solusinya: redirect langsung pakai window.location.href. Ini paling stabil
+ * di semua browser (desktop & mobile) dan tidak bisa diblokir pop-up blocker.
  */
 export async function sendOrderViaWhatsApp(message: string) {
   const url = buildWhatsAppUrl(message);
-
-  const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
-
-  if (isMobile) {
-    window.location.assign(url);
-    return;
-  }
-
-  const opened = window.open(url, "_blank", "noopener,noreferrer");
-  if (!opened) {
-    window.location.assign(url);
-  }
+  window.location.href = url;
 }

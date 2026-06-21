@@ -7,7 +7,8 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { products, type Product } from "@/data/products";
+import { type Product } from "@/data/products";
+import { getAllProducts } from "@/lib/product-store";
 
 const CART_STORAGE_KEY = "sasakbike-cart";
 
@@ -72,7 +73,7 @@ function loadCartFromStorage(): CartItem[] {
 }
 
 function resolveCartLine(item: CartItem): CartLine | null {
-  const product = products.find((p) => p.id === item.productId);
+  const product = getAllProducts().find((p) => p.id === item.productId);
   if (!product) return null;
 
   const variant = product.variants.find((v) => v.id === item.variantId);
@@ -99,7 +100,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }, [items]);
 
   const addToCart = useCallback(({ productId, variantId, size, quantity = 1 }: AddToCartInput) => {
-    const product = products.find((p) => p.id === productId);
+    const product = getAllProducts().find((p) => p.id === productId);
     if (!product) return;
 
     const variant = product.variants.find((v) => v.id === variantId);

@@ -8,11 +8,11 @@ import ProductSearchBar from "@/components/ProductSearchBar";
 import CategoryFilter from "@/components/CategoryFilter";
 import SEO from "@/components/SEO";
 import {
-  products,
   EMPTY_PRODUCT_SLOTS,
   PRODUCT_CATEGORIES,
   type ProductCategoryId,
 } from "@/data/products";
+import { useProducts } from "@/lib/product-store";
 import { filterProducts } from "@/lib/product-filter";
 import { absoluteUrl } from "@/lib/site-config";
 import { PackageSearch } from "lucide-react";
@@ -21,6 +21,7 @@ const isValidCategory = (value: string | null): value is ProductCategoryId =>
   PRODUCT_CATEGORIES.some((c) => c.id === value);
 
 const Products = () => {
+  const products = useProducts();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const query = searchParams.get("q") ?? "";
@@ -30,21 +31,21 @@ const Products = () => {
     : "semua";
 
   const filteredProducts = useMemo(
-    () => filterProducts(query, activeCategory),
-    [query, activeCategory],
+    () => filterProducts(query, activeCategory, products),
+    [query, activeCategory, products],
   );
 
   const categoryCounts = useMemo(() => {
     const counts: Partial<Record<ProductCategoryId, number>> = {
-      semua: filterProducts(query, "semua").length,
+      semua: filterProducts(query, "semua", products).length,
     };
 
     PRODUCT_CATEGORIES.filter((c) => c.id !== "semua").forEach((cat) => {
-      counts[cat.id] = filterProducts(query, cat.id).length;
+      counts[cat.id] = filterProducts(query, cat.id, products).length;
     });
 
     return counts;
-  }, [query]);
+  }, [query, products]);
 
   const updateParams = (nextQuery: string, nextCategory: ProductCategoryId) => {
     const params = new URLSearchParams();

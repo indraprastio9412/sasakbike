@@ -15,6 +15,9 @@ import OrderGuide from "./pages/OrderGuide.tsx";
 import Terms from "./pages/Terms.tsx";
 import Privacy from "./pages/Privacy.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import AdminLogin from "./pages/admin/AdminLogin.tsx";
+import AdminDashboard from "./pages/admin/AdminDashboard.tsx";
+import AdminRoute from "./components/admin/AdminRoute.tsx";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +39,15 @@ const App = () => (
             <Route path="/cara-pemesanan" element={<OrderGuide />} />
             <Route path="/syarat-ketentuan" element={<Terms />} />
             <Route path="/kebijakan-privasi" element={<Privacy />} />
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route
+              path="/admin/dashboard"
+              element={
+                <AdminRoute>
+                  <AdminDashboard />
+                </AdminRoute>
+              }
+            />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

@@ -4,11 +4,13 @@ import PageLayout from "@/components/layout/PageLayout";
 import ProductCard from "@/components/ProductCard";
 import ProductPlaceholder from "@/components/ProductPlaceholder";
 import SEO from "@/components/SEO";
-import { products, EMPTY_PRODUCT_SLOTS } from "@/data/products";
+import { EMPTY_PRODUCT_SLOTS } from "@/data/products";
+import { useProducts } from "@/lib/product-store";
 import { SITE_URL } from "@/lib/site-config";
 import heroVideo from "@/assets/hero-bike.mp4";
 
 const Home = () => {
+  const products = useProducts();
   return (
     <PageLayout>
       <SEO

@@ -6,7 +6,9 @@ import BuyerOrderForm, {
   type BuyerOrderPayload,
   WhatsAppIcon,
 } from "@/components/BuyerOrderForm";
-import { products, formatRupiah } from "@/data/products";
+import { formatRupiah } from "@/data/products";
+import { useProducts } from "@/lib/product-store";
+import { recordOrder } from "@/lib/order-store";
 import { absoluteUrl } from "@/lib/site-config";
 import {
   buildOrderWhatsAppMessage,
@@ -29,6 +31,7 @@ import { toast } from "sonner";
 
 const ProductDetail = () => {
   const { id } = useParams();
+  const products = useProducts();
   const product = products.find((p) => p.id === id);
   const { addToCart } = useCart();
   const [selectedVariant, setSelectedVariant] = useState(
@@ -68,6 +71,26 @@ const ProductDetail = () => {
         buyerPhone: data.phone,
         fullAddress: data.fullAddress,
         mapsLink: data.mapsLink,
+      });
+
+      recordOrder({
+        buyerName: data.name,
+        buyerPhone: data.phone,
+        fullAddress: data.fullAddress,
+        mapsLink: data.mapsLink,
+        source: "produk",
+        items: [
+          {
+            productId: product.id,
+            productName: product.name,
+            variantLabel: selectedVariant.label,
+            size: product.sizes.length > 0 ? size : undefined,
+            unitPrice: product.price,
+            quantity,
+            lineTotal: product.price * quantity,
+          },
+        ],
+        total: product.price * quantity,
       });
 
       toast.success("Membuka WhatsApp...");

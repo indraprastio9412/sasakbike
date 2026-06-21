@@ -13,6 +13,7 @@ import {
   buildCartWhatsAppMessage,
   sendOrderViaWhatsApp,
 } from "@/lib/whatsapp-order";
+import { recordOrder } from "@/lib/order-store";
 import { Minus, Plus, ShoppingBag, Trash2, ArrowRight, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -33,6 +34,24 @@ const Cart = () => {
         buyerPhone: data.phone,
         fullAddress: data.fullAddress,
         mapsLink: data.mapsLink,
+      });
+
+      recordOrder({
+        buyerName: data.name,
+        buyerPhone: data.phone,
+        fullAddress: data.fullAddress,
+        mapsLink: data.mapsLink,
+        source: "keranjang",
+        items: lines.map((line) => ({
+          productId: line.productId,
+          productName: line.product.name,
+          variantLabel: line.variantLabel,
+          size: line.size,
+          unitPrice: line.unitPrice,
+          quantity: line.quantity,
+          lineTotal: line.lineTotal,
+        })),
+        total: totalPrice,
       });
 
       toast.success("Membuka WhatsApp...");
